@@ -1,0 +1,119 @@
+<HTML>
+  <HEAD>
+   <TITLE> GAJI </TITLE>
+  </HEAD>
+  <BODY bgColor="white">
+ <SCRIPT LANGUAGE="JavaScript">
+   function hgapok(gol,msk)
+   {
+    return gp[msk][gol];
+   }
+   function htj(st,ja)
+   {
+    var tjk,tja;
+    if (st==2 ||st==1)tjk=0.1*gapok;
+ 
+    if (ja<=3)
+  tja=0.05*ja*gapok;
+  else
+   tja=0.05*3*gapok;
+   return tja+tjk;
+   }
+   function hgt(gp,tj)
+   {
+    return gp+tj;
+   }
+   function cetak(gp,tj,gt)
+   {
+  document.frm.gaji_pokok.value=gp;
+  document.frm.tunjangan.value=tj;
+  document.frm.gaji_total.value=gt;
+   }
+   function cek(form)
+   {
+    var sts,k,g,janak;
+    with (frm)
+    {
+    g=gol.value;
+    k=eval(mk.value-1);
+    janak=ja.value;
+    sts=st.value;
+    gapok=hgapok(g,k);
+    tj=htj(sts,janak);
+    gatot=hgt(gapok,tj);
+    cetak(gapok,tj,gatot);
+    return false;
+    }
+ 
+   }
+    var tj,gapok,gatot;
+    var gp=new Array();
+   gp[0]=new Array(500000,525000,550000);
+   gp[1]=new Array(700000,725000,750000);
+   gp[2]=new Array(900000,925000,950000);
+  </SCRIPT>`   
+ <table align="center" border cellpadding="5" cellspacing="2" 
+ RULES="GROUPS" >
+ <form name="frm">
+ <tr>
+ <td align="center" colspan="2" >Hitung Gaji</td>
+ <COLGROUP SPAN=3>
+ </tr>
+ <tr>
+ <td width="200">status</td>
+  <td width="200">
+             <SELECT NAME="st">
+     <option>Pilih Status Anda</option>
+             <OPTION VALUE="2">Kawin</OPTION>
+    <OPTION VALUE="1">Duda/Janda</OPTION>
+    <OPTION VALUE="0">Belum Kawin</OPTION>
+             </SELECT>
+   <td> 
+ </tr>
+ <tr>
+   <td>Golongan</td>
+     <td>
+             <SELECT NAME="gol">
+    <option>Pilih Gol</option>
+             <OPTION value="0">1</OPTION>
+    <OPTION value="1">2</OPTION>
+    <OPTION value="2">3</OPTION>
+             </SELECT>  
+    </td>
+ </tr>
+ <tr>
+   <td>Masa Kerja</td>
+   <td> <input type="text" name="mk" size="4" maxlength="4">Tahun</td>
+ </tr>
+ <tr>
+   <td>Jumlah Anak</td>
+   <td> <input type="text" name="ja" size="4" maxlength="4"> 
+                 Orang</td>
+ </tr>
+ <COLGROUP SPAN>
+ <tr>
+ <td align="center" colspan="2">
+  <input type="button" name="Proses"value="Kalkulasi" onClick='cek(this)'>
+  <input type="Reset" value="Reset"></td>
+ </tr>
+ <COLGROUP SPAN>
+ <tr>
+   <td>Gaji Pokok</td>
+   <td> Rp<input type="text" name="gaji_pokok" size="8"readonly></td>
+ </tr>
+ <tr>
+   <td>Tunjangan</td>
+   <td> Rp<input type="text" name="tunjangan" size="8"readonly></td>
+ </tr>
+ <tr>
+   <td>Gaji Total</td>
+   <td> Rp<input type="text" name="gaji_total" size="8"readonly></td>
+ </tr>
+  
+    </table>
+   </form>
+  </td>
+ </tr>
+ </table>
+  </BODY>
+ </HTML>
